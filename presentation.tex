@@ -2,113 +2,268 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage{amsmath,amssymb}
-\usepackage{booktabs}
+\usepackage{amsmath,amssymb,booktabs}
 \usetheme{default}
 \usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
-\setbeamerfont{frametitle}{size=\large}
+\newcommand{\A}{\mathrm{A}}
+\newcommand{\N}{\mathrm{N}}
 
-\title{Aouad, Lykouris \& Zhong (2026)}
-\subtitle{\emph{Human-AI Productivity Paradoxes} --- Section 2}
-\author{Alexander Quispe}
-\date{Repository 1 \textperiodcentered{} Week of August 17--22}
+\title{Artificial Intelligence in the Knowledge Economy}
+\subtitle{Ide \& Talam\`as (2025), Repository 5}
+\author{William Gradost}
+\date{September 17, 2026}
 
 \begin{document}
 
-%================= PORTADA (con el enlace al repositorio) =============
-\begin{frame}[plain]
-  \titlepage
-  \begin{center}\small
-    \texttt{github.com/alexanderquispe/ai-01-aouad}
-  \end{center}
+\begin{frame}[plain]\titlepage\begin{center}\small
+\url{github.com/wbgradost/ai-05-ide}
+\end{center}\end{frame}
+
+\begin{frame}{1. The question and the mechanism}
+\textbf{Question.} Who gains when AI agents enter a knowledge hierarchy, and
+does the answer depend on capability, autonomy, or both?
+
+\medskip
+Production problems have unknown difficulty $x\sim U[0,1]$. A human with
+knowledge $z$ solves a fraction $z$ alone. Workers handle routine problems;
+solvers handle exceptions that workers cannot solve.
+
+\medskip
+\begin{block}{Core mechanism}
+AI changes both the set of tasks that can be performed and the set of roles in
+which compute can be used. This changes matches, occupational composition, and
+the division of surplus.
+\end{block}
 \end{frame}
 
-%================= 1. EL ART\'ICULO ====================================
-\begin{frame}{1 \textperiodcentered{} The paper and the agent's problem}
-  \textbf{Question.} When does AI assistance make a worker \emph{less} productive?
+\begin{frame}{2. The pre-AI economy}
+There is a unit mass of humans, one unit of time, and knowledge $z\in[0,1]$.
 
-  \medskip
-  \textbf{The single mechanism.} AI is a \emph{perfectly substitutable input}:
-  skill, effort and assistance enter production only through their sum.
-  \[ x \;=\; s + e + a \]
+\begin{itemize}
+\item A single-layer producer works alone and expected output is $z$.
+\item A two-layer firm has workers of knowledge $z$ and a solver of knowledge
+      $s\ge z$.
+\item Each request for help costs the solver $h\in(0,1)$ units of time.
+\end{itemize}
 
-  \medskip
-  \textbf{The agent's problem.} Choose effort $e$ to maximise output net of a
-  \emph{linear} cost:
-  \[ \max_{e \ge 0}\; p(s+e+a) \;-\; \gamma e \]
+\[
+n(z)h(1-z)=1,\qquad n(z)=\frac{1}{h(1-z)}.
+\]
 
-  \smallskip
-  \begin{itemize}\small
-    \item $p$ weakly increasing, concave, twice differentiable; $\gamma>0$.
-    \item Only constraint: $e \ge 0$ --- and it binds. That is the whole result.
-  \end{itemize}
+Under the maintained case $h<h_0$, Proposition 1 gives the efficient,
+positively assortative hierarchy $W\preceq S$ with no independent human
+producers.
 \end{frame}
 
-%================= 2. EL RESULTADO ===================================
-\begin{frame}{2 \textperiodcentered{} Proposition 2.1, with all its conditions}
-  Define $x^{*}$ as the \emph{largest} maximiser of $p(x)-\gamma x$:
-  \[ x^{*} \;=\; \max\,\arg\max_{x}\;\bigl[\,p(x)-\gamma x\,\bigr] \]
+\begin{frame}{3. Capability and autonomy are different}
+An AI agent has fixed capability $z_{AI}<1$ and uses one unit of compute.
 
-  \textbf{Regularity condition} (without it $x^{*}$ need not exist):
-  \[ \limsup_{x\to\infty} \frac{p(x)}{x} \;<\; \gamma \]
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+ & Autonomous AI & Non-autonomous AI\\
+\midrule
+Independent production & yes & no\\
+Worker/co-worker role & yes & no\\
+Solver/co-pilot role & yes & yes\\
+Compute price (abundant case) & $r=z_{AI}$ & $r=0$\\
+\bottomrule
+\end{tabular}
+\end{center}
 
-  \medskip
-  \textbf{Then}
-  \[ e^{*}(s,a) = \bigl(x^{*}-s-a\bigr)_{+}, \qquad
-     p^{*}(s,a) = \max\bigl\{\,p(x^{*}),\; p(s+a)\,\bigr\} \]
-
-  \medskip
-  \footnotesize\emph{Intuition.} The agent has one target level of total input;
-  he tops it up with effort, and once skill plus AI already reach it he simply
-  stops working.
+\medskip
+Capability says how difficult a problem the agent can solve. Autonomy says
+whether it can pursue production without a human.
 \end{frame}
 
-%================= 3. LO QUE HICE ====================================
-\begin{frame}{3 \textperiodcentered{} What I did}
-  \textbf{Reproduced} Proposition 2.1 by hand --- the interior-versus-corner
-  split, with no differentiation in the proof (\texttt{hand/}).
+\begin{frame}{4. Autonomous equilibrium and occupational displacement}
+Autonomous AI is always used for independent production. It is also used as a
+worker when $z_{AI}\in\operatorname{int}(W)$ and as a solver when
+$z_{AI}\in\operatorname{int}(S)$ (Proposition 2, pp.~18--20).
 
-  \medskip
-  \textbf{Assumptions I considered relaxing}
-  \begin{itemize}\small
-    \item \textbf{Linear cost $\to$ convex.} \emph{Dead end}: the authors already
-      do it in Appendix D (Props. D.3, D.6). Replication, not extension.
-    \item \textbf{Myopia.} A two-period agent who internalises skill dynamics.
-      Never relaxed anywhere in the paper --- this is the live one.
-    \item \textbf{Complementarity inside $p(\cdot)$} rather than as an added
-      interaction term. Harder: \S{}4.4 and \S{}5.3 partly pre-empt it.
-  \end{itemize}
+\medskip
+\begin{itemize}
+\item Basic AI: $z_{AI}\in\operatorname{int}(W)$ displaces humans from routine
+      work toward specialized problem solving.
+\item Advanced AI: $z_{AI}\in\operatorname{int}(S)$ displaces humans in the
+      opposite direction, toward routine work (Proposition 3, p.~21).
+\end{itemize}
 
-  \medskip
-  \textbf{Also produced} a full step-by-step tutorial of the paper and two
-  lecture decks (\texttt{extra/}).
+The same capability parameter therefore has different distributional effects
+depending on the occupation it enters.
 \end{frame}
 
-%================= 4. LA IA =========================================
-\begin{frame}{4 \textperiodcentered{} Where I did not believe the AI}
-  \textbf{What I asked.} ``What is the most natural extension of this model?''
+\begin{frame}{5. Proposition 5: who wins under autonomous AI?}
+Let $w$ be pre-AI wages and $w^\A$ autonomous-AI wages. Define
+\[
+B=\{z\le z_{AI}:w^\A(z)>w(z)\},\qquad
+T=\{z\ge z_{AI}:w^\A(z)>w(z)\}.
+\]
 
-  \medskip
-  \textbf{What the model answered.} Relax the linear cost $c(e)=\gamma e$ to a
-  strictly convex $c(e)$ --- presented confidently as an open direction.
+The appendix single-crossing lemma gives
+$B=[0,z_b)$ and $T=(z_t,1]$. The agent exactly at $z_{AI}$ loses because
+$w^\A(z_{AI})=z_{AI}<w(z_{AI})$.
 
-  \medskip
-  \textbf{My verdict: \textcolor{red}{incorrect as an extension}.}
-  \begin{itemize}\small
-    \item Appendix D is titled \emph{``Extension to convex cost functions''} and
-      redoes Sections 2--4 under strictly convex cost.
-    \item So the proposal is already in the paper. I checked the appendix
-      directly rather than taking the answer at face value.
-    \item \emph{Caveat worth keeping:} Appendix D covers \S\S{}2--4 but \textbf{not}
-      \S{}5, so convex cost applied to the skill-polarisation result is genuinely
-      untouched.
-  \end{itemize}
+\begin{block}{Exact conditions (v11 p.~24; Appendix \S2.5, pp.~18--21)}
+Bottom winners exist iff $z_{AI}>\bar z_{AI}$, where
+$\bar z_{AI}\in\operatorname{int}(W)$. Top winners exist for every
+$z_{AI}\in[0,1)$ under $h<h_0$.
+\end{block}
+\end{frame}
 
-  \medskip
-  \footnotesize The step I re-derived by hand is in \texttt{hand/} --- I did not
-  trust the algebra of the first-order condition until I had written it out.
+\begin{frame}{6. Why the bottom threshold is real}
+For the least knowledgeable human, AI creates two forces:
+\[
+\Delta(0)=w^\A(0)-w(0)
+  =\underbrace{\text{share effect}}_{+}
+   -\underbrace{\text{match effect}}_{-}\quad\text{(basic AI)}.
+\]
+
+The proof constructs $\bar z_{AI}$ from the unique root
+$\Delta(0;\bar z_{AI})=0$. It shows $\Delta(0;z_{AI})$ is continuous and
+strictly increasing up to the worker/solver boundary. Hence
+\[
+\Delta(0;z_{AI})>0\quad\Longleftrightarrow\quad z_{AI}>\bar z_{AI}.
+\]
+
+For advanced AI, both the match and share effects are positive, so the bottom
+wins automatically.
+\end{frame}
+
+\begin{frame}{7. Why top winners are not capability-free}
+At the top, the share effect always dominates the match effect under the
+maintained assumptions. The proof uses
+\[
+w^\A(1)=\frac1h>w(1)
+\]
+and the same single-crossing result.
+
+This is not an unconditional statement about every model: the paper notes that
+top winners can disappear when $h\ge h_0$, and the superintelligent endpoint
+$z_{AI}=1$ makes the most knowledgeable human lose.
+
+\medskip
+\textbf{Audit point:} autonomy matters for the regime, but capability remains
+inside the winner conditions.
+\end{frame}
+
+\begin{frame}{8. Proposition 6: non-autonomous AI}
+Let $w^\N$ denote non-autonomous-AI wages. AI can only be a solver, so
+$r=0$ and unused compute is idle.
+
+\begin{block}{Adoption threshold (v11 p.~27; Appendix \S2.6, pp.~21--27)}
+If $z_{AI}\le w(0)$, AI is not used and occupations and wages equal the pre-AI
+equilibrium. If $z_{AI}>w(0)$, only the least knowledgeable humans use AI as a
+solver, through a unique cutoff allocation.
+\end{block}
+
+The threshold is explicitly about capability relative to the pre-AI bottom
+wage, not autonomy alone.
+\end{frame}
+
+\begin{frame}{9. Proposition 6: distribution and output}
+Proposition 6 also establishes:
+\begin{enumerate}
+\item Autonomous-AI output is strictly higher than non-autonomous-AI output.
+      Autonomous compute can produce; non-autonomous compute must leave some
+      capacity idle.
+\item With adoption, at least one human loses relative to pre-AI.
+\item A neighborhood of the bottom does at least as well under non-autonomous
+      AI as under pre-AI or autonomous AI (strictly better when adopted).
+\item A neighborhood of the top does weakly worse under non-autonomous than
+      under autonomous AI; the inequality is strict below the endpoint.
+\end{enumerate}
+\textbf{Bottom line:} autonomy changes the opportunity-cost channel and output;
+capability controls adoption and the location of winners.
+\end{frame}
+
+\begin{frame}{10. A two-type calculation to write by hand}
+Take two low types $z_L=0$, one high type $z_H=0.8$, and $h=0.5$. Then
+$n(0)=2$. Normalize the high type's outside option to $w_H=0.8$.
+\[
+Y^0=2(0.8)=1.6,\qquad w_L^0=\frac{1.6-0.8}{2}=0.4.
+\]
+For capability $q\in(0.4,0.8)$ and one compute unit:
+\[
+Y^\N=0.8+2q,\qquad Y^\A=1.6+q,
+\]
+because non-autonomous AI supervises the two low workers while autonomous AI
+uses compute independently and leaves the human hierarchy intact.
+\[
+Y^\A-Y^\N=0.8-q>0.
+\]
+This is a transparent discrete specialization, not the continuum proof.
+\end{frame}
+
+\begin{frame}{11. Where I did not believe the AI}
+The tempting summary was: “distributional effects depend on autonomy, not
+capability.”
+
+\begin{alertblock}{Verdict}
+Too strong. Capability determines the autonomous bottom-winner threshold
+$z_{AI}>\bar z_{AI}$ and the non-autonomous adoption threshold
+$z_{AI}>w(0)$. Autonomy changes which roles compute can perform and whether
+compute has a production opportunity cost.
+\end{alertblock}
+
+The paper's two-dimensional taxonomy is more informative than the one-line
+gloss.
+\end{frame}
+
+\begin{frame}{12. The missing manuscript evidence}
+\begin{center}
+\IfFileExists{hand/derivation.jpg}{\includegraphics[width=.7\linewidth]{hand/derivation.jpg}}{\fbox{\parbox{.72\linewidth}{\centering\vspace{1em}The author's photograph of the hand derivation will be inserted here.\\[.5em]No synthetic handwriting is used.\vspace{1em}}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{13. Lean: original claim $\rightarrow$ formal statement}
+\textbf{Original paper claim (Proposition 6, item 1):}
+\[
+Y^{\A}>Y^{\N}\quad\text{when comparing autonomous and non-autonomous AI.}
+\]
+
+\textbf{Our Lean target:} a discrete specialization with two low types and one
+high type, for $2/5<q<4/5$,
+\[
+\frac45+2q<\frac85+q.
+\]
+
+This is deliberately labelled a specialization: it is not the full continuum
+equilibrium statement.
+\end{frame}
+
+\begin{frame}{14. Lean proof and interpretation}
+\small
+Lean target: \texttt{discreteOutputStrictlyHigher q} abbreviates
+\texttt{4/5 + 2*q < 8/5 + q}.  The endpoint theorem assumes
+\texttt{2/5 < q} and \texttt{q < 4/5}, unfolds the definition, and closes the
+inequality with \texttt{linarith}.
+
+\textbf{What Lean verifies:} given the explicit capability interval, the
+discrete autonomous-output expression exceeds the non-autonomous expression by
+$4/5-q>0$. It verifies this arithmetic implication and its stated domains.
+
+\medskip
+\textbf{What it does not verify:} the paper's wage functions, continuum
+matching, Proposition 5's single-crossing threshold, or the full Proposition 6
+equilibrium. The result is partial by design.
+\end{frame}
+
+\begin{frame}{15. Takeaways}
+\begin{itemize}
+\item Knowledge hierarchies turn AI adoption into a matching and surplus-sharing
+      problem, not just a productivity shock.
+\item Autonomous AI always has a productive compute margin; non-autonomous AI
+      may be unused and leaves compute idle.
+\item Proposition 5: top winners are guaranteed only under the maintained
+      assumptions; bottom winners require $z_{AI}>\bar z_{AI}$.
+\item Proposition 6: non-autonomous adoption requires $z_{AI}>w(0)$ and shifts
+      gains toward the bottom, while autonomous AI generates higher output.
+\item Lean checks one honest discrete output mechanism; the manuscript photo is
+      the only deliberately pending deliverable.
+\end{itemize}
 \end{frame}
 
 \end{document}
