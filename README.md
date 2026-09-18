@@ -85,9 +85,9 @@ collapses two dimensions. The paper’s exact conditions show why that is wrong:
 verdict is that autonomy changes the regime and capability changes thresholds
 within and across regimes.
 
-The hand derivation will be inserted later at
-`hand/derivation.jpg` (or an equivalent user-provided image). No handwriting is
-fabricated in this repository.
+The author's real handwritten derivation is included at
+`hand/derivation.jpg` and displayed in the presentation. No synthetic
+handwriting is used.
 
 ## Lean status
 
