@@ -49,11 +49,12 @@ private extracted text. No paper source was added to this repository.
 > autonomous bottom-winner threshold `z_AI > \bar z_AI`, and the basic-versus-
 > advanced occupational displacement cases.
 
-The real AppliedModelingLib authoring command was run with paper id
+The real AppliedModelingLib authoring command used paper id
 `IT25KnowledgeEconomy`, arXiv v11, and the prepared discrete Proposition 6
-output statement. It copied the audited source artifact but rejected the
-rendered statement because the local library `.olean` was unavailable. Per the
-later instruction, the global build was stopped. The requested fast check then
-reported that `papers/IT25KnowledgeEconomy/status.json` did not exist. The
-public `lean/` file preserves only the honest small statement/proof artifact;
-it is not reported as a completed Proposition 5/6 verification.
+output statement. An initial attempt failed because the required `.olean`
+files were unavailable. After the explicit instruction to run
+`lake exe cache get`, the scaffold (including `status.json`) was generated,
+the paper-only target `+IT25KnowledgeEconomy` compiled, and
+`python3 scripts/paper_contribution.py check IT25KnowledgeEconomy --fast`
+passed. The result remains a discrete specialization, not a completed
+verification of Proposition 5 or Proposition 6.
