@@ -1,5 +1,4 @@
-# Hand derivation placeholder
+# Hand derivation
 
-The required photograph of the two-type discrete derivation will be added by
-the author as `derivation.jpg` (or a comparable user-provided image). This file
-is deliberately not a substitute for that photograph.
+`derivation.jpg` is the author's real photograph of the two-type discrete
+derivation used in the presentation. It is not synthetic handwriting.
