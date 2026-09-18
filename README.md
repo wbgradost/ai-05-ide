@@ -91,10 +91,10 @@ fabricated in this repository.
 
 ## Lean status
 
-The public `lean/` folder contains the artifact from our own AppliedModelingLib
-authoring attempt. It is an explicitly **partial discrete specialization** of
-the Proposition 6 output mechanism, not a verification of the full continuum
-equilibrium or of Proposition 5/6 in their entirety. The focused Lean command
-could not run because the interrupted library build left no required `.olean`
-files; the official fast paper check likewise reported that the generated
-paper status file was unavailable. No proof result is overstated.
+The public `lean/` folder contains the complete paper scaffold from our own
+AppliedModelingLib run. It is an explicitly **partial discrete specialization**
+of the Proposition 6 output mechanism, not a verification of the full
+continuum equilibrium or of Proposition 5/6 in their entirety. The theorem
+`discreteOutputStrictlyHigher` proves that, for `2/5 < q < 4/5`,
+`4/5 + 2q < 8/5 + q`. The paper-scoped target compiled and
+`paper_contribution.py check IT25KnowledgeEconomy --fast` passed.

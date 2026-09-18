@@ -1,19 +1,17 @@
-# IT25KnowledgeEconomy — AppliedModelingLib run
+<!-- BEGIN GENERATED PAPER FOLDER README -->
+# Artificial Intelligence in the Knowledge Economy
 
-Source pinned to arXiv v11 (2025-02-25). The authoring attempt used the
-course paper id `IT25KnowledgeEconomy` and the required statement specification.
-The repository-wide library build was intentionally stopped; this public
-artifact is the small paper-scoped specialization that was obtained.
+| Field | Value |
+|---|---|
+| Final status | Partially formalized |
+| Paper reference | Artificial Intelligence in the Knowledge Economy by Enrique Ide and Eduard Talamas; Publication details not listed. |
+| Lines of Code | 165 |
 
-`DiscreteOutput.lean` records the intended paper-scoped statement and proof of
-the following discrete consequence of
-Proposition 6: for `2/5 < q < 4/5`, autonomous output `8/5 + q` is strictly
-larger than non-autonomous output `4/5 + 2q`. Lean proves the arithmetic
-inequality with `linarith` when the Mathlib environment is available. In this
-run the fast paper check could not execute: the authoring scaffold was not
-created because the permitted library build was stopped before producing the
-required `.olean` files. This is not a formalization of the full continuum
-equilibrium or of Proposition 5/6 as stated in the paper.
+## Key Links
 
-The source PDF, caches, credentials, and AppliedModelingLib checkout remain
-outside this public repository.
+- Final validation report: not tracked in this folder.
+- Dependency DAG: not tracked in this folder.
+- Compact Lean interface: [PaperInterface.lean](PaperInterface.lean)
+- Source/status JSON: [status.json](status.json); [paper statement map](audit/paper_statement_map.json).
+- Additional documentation: [FORMALIZATION_NOTES.md](docs/FORMALIZATION_NOTES.md)
+<!-- END GENERATED PAPER FOLDER README -->

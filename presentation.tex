@@ -236,14 +236,16 @@ equilibrium statement.
 
 \begin{frame}{14. Lean proof and interpretation}
 \small
-Lean target: \texttt{discreteOutputStrictlyHigher q} abbreviates
-\texttt{4/5 + 2*q < 8/5 + q}.  The endpoint theorem assumes
+The transparent Spec is paired with theorem
+\texttt{discreteOutputStrictlyHigher}. It states
+\texttt{4/5 + 2*q < 8/5 + q}. The endpoint assumes
 \texttt{2/5 < q} and \texttt{q < 4/5}, unfolds the definition, and closes the
 inequality with \texttt{linarith}.
 
 \textbf{What Lean verifies:} given the explicit capability interval, the
 discrete autonomous-output expression exceeds the non-autonomous expression by
-$4/5-q>0$. It verifies this arithmetic implication and its stated domains.
+$4/5-q>0$. The paper target compiled and the AppliedModelingLib
+\texttt{--fast} check passed.
 
 \medskip
 \textbf{What it does not verify:} the paper's wage functions, continuum

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "paper": "IT25KnowledgeEconomy",
+  "source_url": "https://arxiv.org/abs/2312.05481v11",
+  "source_version": "arXiv v11 (2025-02-25)",
+  "source_artifact_path": "papers/IT25KnowledgeEconomy/source-audited.pdf",
+  "source_artifact_sha256": "0b3c727a204f7801a9598dacd7ca7fdb385e21ee6877992ea0eb13c0538d8ebf",
+  "source_inventory_kind": "pinned_statement_target_scaffold",
+  "source_curated": false,
+  "seed_scaffold": true,
+  "source_coverage_mode": "named_theoretical_statements",
+  "semantic_contract_policy": {
+    "schema": 1,
+    "activation": "Before Lean drafting, independently inventory every material source atom against exact pinned source quote bytes; do not infer that inventory from declaration, binder, field, or function names. After a source item has an audited paper-local specification and a theorem/lemma proving or refuting it, add top-level semantic_contract_schema: 1 and semantic_route_schema: 2, classify every item with an explicit claim_bearing Boolean, and record a semantic_contract for each source result. Route a source definition, algorithm, model, assumption, or condition as source_semantic_declaration to the actual paper/library prerequisite used by the result Specs; never manufacture a theorem that merely restates a definition. At formalized closeout, also add source_claim_atoms_schema: 1 and complete the current raw-source-to-expanded-Spec review. Do not add a separate source_spec_correspondence worksheet, atom-to-component bridge ledger, or terminal-node disposition ledger: the builder-issued Lean graph owns the exact Spec/proof relation and complete recursive semantic and axiom closure, including proof and instance arguments. Each statement-first row supplies an inactive semantic_contract_template pairing its transparent `...Spec : Prop` with its theorem/lemma. Promote that exact template only after the independent source audit passes, the theorem has exactly the transparent Spec type, the closure record passes, and the proof hole is replaced. Do not manufacture a contract from the temporary by-sorry statement skeleton alone. Historical receipts remain readable records but cannot replace the current accepted obligation graph. For a source-game result whose feasible-action equilibrium comparison uses a conditional/posterior or observation-contingent value, add the separately byte-pinned `semantic_context_requirements` kind `strategic_observation_totality`; it requires an explicit off-path/zero-probability totality audit and cannot be satisfied by a Lean-only default value.",
+    "required_fields": [
+      "spec_declaration",
+      "evidence_declaration",
+      "evidence_mode",
+      "semantic_shape"
+    ],
+    "evidence_modes": [
+      "proves",
+      "refutes"
+    ],
+    "semantic_shapes": [
+      "plain"
+    ],
+    "shape_policy": "Only plain exact-proposition contracts are currently enforced. Do not record a specialized runtime, preprocessing, or refinement shape until the audit implements its structural check.",
+    "source_defect_routing": "Every repaired_in_lean source-proof defect must be linked from a successfully checked contract item through source_defect_ids."
+  },
+  "items": {
+    "discreteOutputStrictlyHigher": {
+      "statement": "Overall output is strictly higher with autonomous than non-autonomous AI.",
+      "source_item": "Proposition 6, part 1 (output comparison; discrete specialization)",
+      "source_kind": "theorem",
+      "source_location": "Main text p. 27, item 1; Online Appendix Lemma 2.10, pp. 27",
+      "source_url": "https://arxiv.org/abs/2312.05481v11",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "discreteOutputStrictlyHigherSpec"
+      ],
+      "proof_lean_declarations": [
+        "discreteOutputStrictlyHigher"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "discreteOutputStrictlyHigherSpec",
+        "evidence_declaration": "discreteOutputStrictlyHigher",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    }
+  }
+}
